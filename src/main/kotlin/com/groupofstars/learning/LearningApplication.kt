@@ -11,15 +11,10 @@ class LearningApplication{
 @RestController
 class MessageControl(private val messageService: MessageService) {
 	@GetMapping("/")
-	fun index(@RequestParam("name") name:String) = listOf(
-		Message(name,name),
-		Message(name,name),
-		Message(name,name),
-	)
+	fun index(@RequestParam("name") name:String) = messageService.findAll()
 	@PostMapping("/")
-	fun post(@RequestBody message: Message):Int {
-		return messageService.save(message)
-	}
+	fun post(@RequestBody message: Message) = messageService.save(message)
+
 	@GetMapping("{id}")
 	fun get(@PathVariable("id") id:String) = messageService.findOne(id)
 
