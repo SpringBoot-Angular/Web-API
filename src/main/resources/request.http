@@ -21,6 +21,7 @@ POST http://localhost:8080/
 Content-Type: application/json
 
 {
+  "id" : "@332432",
   "text": "Privet!"
 }
 
